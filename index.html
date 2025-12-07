@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Pudge — Dota 2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    Pudge — The Butcher (Dota 2)
+</header>
+
+<div class="container">
+    <h2>О герое</h2>
+    <p>Pudge — один из самых узнаваемых и мемных героев Dota 2. Его легендарный <b>Meat Hook</b>
+       способен вытащить врага из полной безопасности прямо в адскую мясорубку.</p>
+
+    <div class="img-box">
+        <img src="img/pudge.png" alt="Pudge">
+    </div>
+
+    <h2>Способности</h2>
+
+    <div class="ability"><b>Meat Hook</b> — кидает крюк.</div>
+    <div class="ability"><b>Rot</b> — наносит урон вокруг Pudge.</div>
+    <div class="ability"><b>Flesh Heap</b> — даёт силу за убийства.</div>
+    <div class="ability"><b>Dismember</b> — оглушает и поедает врага.</div>
+
+    <button id="hookBtn">Хукнуть вслепую</button>
+
+    <p id="hookResult"></p>
+</div>
+
+<footer>
+    Сделано для фаната Pudge ❤️
+</footer>
+
+<!-- Аудио -->
+<audio id="hookSound" src="audio/hook.mp3"></audio>
+
+<script>
+    const lines = [
+        "Pudge промахнулся... но запах крови стал сильнее.",
+        "Хук ушёл куда-то в темноту. Может, это был крипа?",
+        "Попал! Кто-то явно не рад этому.",
+        "Мимо... Пудж злится.",
+        "Хук зацепился за что-то… лучше не смотреть."
+    ];
+
+    const sound = document.getElementById("hookSound");
+
+    document.getElementById("hookBtn").onclick = () => {
+        // случайная фраза
+        const result = lines[Math.floor(Math.random() * lines.length)];
+        document.getElementById("hookResult").textContent = result;
+
+        // звук крюка
+        sound.currentTime = 0;
+        sound.play();
+    };
+</script>
+
+</body>
+</html>
